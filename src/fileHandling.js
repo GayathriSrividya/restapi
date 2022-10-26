@@ -20,7 +20,6 @@ function fromFile(req, res)
  }
 }
 
-
 function filter(req, res){
     const data= fromFile(req, res)
     try{
@@ -37,7 +36,6 @@ function filter(req, res){
             return data
         }
 }
-
 
 function toFile(req, res){
     const newEntry =  {
@@ -63,7 +61,6 @@ function toFile(req, res){
     res.status(400)
     res.send(`product with id '${req.body.id}' already exists`)
 }}
-
 
 module.exports.toFile=toFile
 module.exports.fromFile=fromFile
