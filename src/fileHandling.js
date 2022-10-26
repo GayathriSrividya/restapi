@@ -3,7 +3,7 @@ const fs =  require('fs')
 function fromFile(req, res)
 {
  try{
-    const data = fs.readFileSync('../products.json', 'utf-8')
+    const data = fs.readFileSync('../data/products.json', 'utf-8')
     if(data.length==0){
         res.status(400)
         return 'no products available to display'
@@ -48,7 +48,7 @@ function toFile(req, res){
     const checkId = oldProd.find(entry=>entry.id==parseInt(req.body.id))
     if(!checkId){
     oldProd.push(newProd)
-    fs.writeFile('../products.json', JSON.stringify(oldProd), (err, data)=>{
+    fs.writeFile('../data/products.json', JSON.stringify(oldProd), (err, data)=>{
         if(err){
             res.send('an error occured')
             return err
